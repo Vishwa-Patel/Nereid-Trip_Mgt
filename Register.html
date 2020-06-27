@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/stylesheet1.css">
+	<style type="text/css">
+		body{
+    			margin: 0;
+    			padding: 0;
+    			background-image:url('img/Mine/register.jpeg');
+    			background-size:100% 100%;
+    			background-position:center;
+    			font-family: sans-serif;
+    		}
+
+	</style>
+	
+	<script>
+	var val=function()
+	{
+		var username=document.getElementById('uname').value;
+		
+		if(username=="")
+		{
+			document.getElementById('uname').innerHTML="Firstname name is required";
+			alert("Please Enter Your Name...");
+			return false;
+		}
+			
+	}
+	
+	var aadhar=function()
+	{
+		var uidai=document.getElementById('uidai').value;
+		if(uidai=="")
+		{
+			document.getElementById('uidai').innerHTML="Aadhar number is required";
+			alert("Please Enter your Aadhar id number...");
+			return false;
+		}
+	}
+	
+	var cno=function()
+	{
+		var cno=document.getElementById('contactno').value;
+		if(cno=="")
+		{
+			alert("Please enter 10 digit valid mobile number");
+			return false;
+		}		
+		
+	}
+	
+	var pass=function()
+	{
+		var password=document.getElementById('pass').value;
+		if(password=="")
+		{
+			document.getElementById('pass').innerHTML="Password is required";
+			return false;
+		}
+		
+		if((password.length<=5) || (password.length>20))
+		{
+			document.getElementById('pass').innerHTML="password length must be between 5 and 20";
+			return false;
+		}
+		
+	}
+	var cpass=function()
+	{
+		var confirmpassword=document.getElementById('cpass').value;
+		if(confirmpassword=="")
+		{
+			document.getElementById('confirmpassword').innerHTML="confirm password is required";
+			return false;
+		}
+	
+	}
+	var emailval=function()
+	{
+		var emailid = document.getElementById('email').value;
+		if(emailid =="")
+		{
+			document.getElementById('email').innerHTML="email is name is required";
+			alert("Please enter the valid email id containing '@' and '.domain' format... ");
+			return false;
+		}
+		
+	}
+	
+	var check=function()
+	{
+		
+		var password=document.getElementById('pass').value;
+		var confirmpassword=document.getElementById('cpass').value;
+	
+		if(password == confirmpassword)
+		{
+			document.getElementById('message').style.color = 'green';
+			document.getElementById('message').innerHTML = 'Password is matching';
+		}
+	
+		else
+		{
+			document.getElementById('message').style.color = 'red';
+			document.getElementById('message').innerHTML = 'Password is not matching';
+			return false;
+		}
+		
+		
+	}
+	
+	
+	</script>
+	
+	
+</head>
+
+<body>
+	<div>
+	
+	<img src="img/Mine/42690f2f-c13f-48b7-99c4-2f7642c080f8_200x200.png" height="150" width="300">
+	<ul>
+		<li><a href="home.php">SIGN IN</a><li>
+	</ul>
+	
+	<h2 style="font-family:Comic Sans Ms">Register Here ..!!!</h2>
+	
+	<form action="simpleinsert.php" method="POST" onsubmit="return val()">
+		<span id='firstname' class="text-danger"></span><h1>Username</h1>
+		<input type="text"  placeholder="Please enter Your Name" id="uname" name="uname" required>
+		
+		<span id='contactno' class="text-danger" ></span><h1>ContactNo<h1>
+		<input type="text" placeholder="Please Enter PhoneNo" id="contactno" name="contactno" onkeypress="last();" onclick="last();" pattern="[7-9]{1}[0-9]{9}" title="Please enter 10 digit Phone number"  required>
+	
+		<span id='email' class="text-danger"></span><h1>Email id</h1>
+		<input type="email"  placeholder="Please Enter your Email id" id="email" name="email" onkeypress="cno();" onclick="cno();" required>
+
+		<span id='uidai' class="text-danger"></span><h1>Your UIDAI Number</h1>
+		<input type="text"  placeholder="Please Enter your Aadhar id number" id="uidai" name="uidai" onkeypress="cno();" onclick="cno();" required>
+		
+		<span id='password' class="text-danger"></span><h1>Password</h1>
+		<input type="password"  placeholder="Please Enter the Password" id="pass" name="pass" onkeyup="emailval();" onclick="emailval();" required>
+		
+		<span id='confirm password' class="text-danger"></span><h1>Confirm Password</h1>	
+		<input type="password"  placeholder="Please Re-enter the Password" id="cpass" onkeyup="check();" onclick="pass();" required>
+		
+		<span id='message'></span>
+	
+		
+	<input type="Submit" name="Submit">
+	
+	</form>
+	</div>	
+</body>
+</html>
