@@ -1,2 +1,1 @@
-# Nereid-Trip_Mgt
-A Trip Management System Project
+Welcome to Nereid Trip Management System !!!
